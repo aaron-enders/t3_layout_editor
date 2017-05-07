@@ -34,7 +34,7 @@ class AdminController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * action index
 	 * 
-	 * @return void
+	 * @return void 
 	 */
 	public function indexAction() {
 		$tempConfigPathOriginal = PATH_site . "/typo3conf/ext/layout_editor/Configuration/";
