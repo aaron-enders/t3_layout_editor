@@ -1,0 +1,70 @@
+
+
+
+
+
+<f:be.container pageTitle="foo" enableClickMenu="false" loadExtJs="true" loadExtJsTheme="false" enableExtJsDebug="true" loadJQuery="true" includeCssFiles="{0: '{f:uri.resource(path:\'Css/Admin.css\')}'}" includeJsFiles="{0: '{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlineLabels="{0: 'label1', 1: 'label2'}">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+
+<f:comment>
+<f:debug>{_all}</f:debug>
+<f:be.menus.actionMenu>
+  <f:be.menus.actionMenuItem label="New" controller="Fluid" action="new" />
+  <f:be.menus.actionMenuItem label="{f:translate(key='List')}" controller="Fluid" action="list" />
+</f:be.menus.actionMenu>
+</f:comment>
+
+<h1>Layout Configuration</h1>
+<form method="post">
+
+<hr><br>
+<div class="layoutEditor">
+	<section>
+
+		<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
+			<fieldset index="{iterator.index}">
+					<legend>
+						<div class="delete"><i class="material-icons">delete</i></div>
+						<f:form.textfield name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][label]" value="{contentLayout.label}" />
+					</legend>
+					<table width="100%">
+						<tr>
+							<td><label for="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]">Number:</label></td>
+							<td><label for="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]">Class:</label></td>
+						</tr>
+						<tr>
+							<td><f:form.textfield name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]" value="{number}" class="number" /></td>
+							<td><f:form.textfield name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" value="{contentLayout.class}" /></td>
+						</tr>
+					</table>
+			</fieldset>
+		</f:for>
+		<div class="add"><i class="material-icons">add_box</i> Add new</div>
+		<br><br>
+		<span style="font-size: 9px;">Settings will be usable without any more configuration.<br>
+		If you want to use the settings without this extension, use the TsConfig and Typoscript on the right.</span><br><br>
+		<input type="submit" value="Save">
+
+		</form>
+	</section>
+	<section style="font-size: 9px;">
+		<h3>Typoscript</h3>
+		<f:format.raw>{tsMainFile}</f:format.raw><br>
+		<f:format.raw>{tsFile}</f:format.raw>
+
+		<h3>CSS</h3>
+		<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
+			.{contentLayout.class}{<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {contentLayout.label} */<br>
+			}<br>	
+		</f:for>
+	</section>
+	<section style="font-size: 9px;">
+		<h3>TsConfig</h3>
+		<f:format.raw>{tsConfigFile}</f:format.raw>
+	</section>
+</div>
+</f:be.container>  

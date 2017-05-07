@@ -1,0 +1,2 @@
+tt_content.stdWrap.innerWrap.cObject= CASE
+tt_content.stdWrap.innerWrap.cObject.key.field = layout

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-05-05T23:47:46Z" product-name="layout_editor">
+		<header/>
+		<body>
+			<trans-unit id="tx_layouteditor_domain_model_admin">
+				<source>Admin</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

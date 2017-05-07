@@ -1,0 +1,16 @@
+
+ # Module configuration
+module.tx_layouteditor_admin {
+	persistence {
+		storagePid = {$module.tx_layouteditor_admin.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_layouteditor_admin.view.templateRootPath}
+		partialRootPath = {$module.tx_layouteditor_admin.view.partialRootPath}
+		layoutRootPath = {$module.tx_layouteditor_admin.view.layoutRootPath}
+	}
+}
+
+
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/layout_editor/Configuration/TypoScript/main.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/layout_editor/Configuration/TypoScript/temp.txt">

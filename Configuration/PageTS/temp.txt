@@ -1,0 +1,6 @@
+#toll2
+TCEFORM.tt_content.layout.addItems.100 = Tolles Layout 2
+#superdupa3
+TCEFORM.tt_content.layout.addItems.215 = Super Duper
+#superdupa4
+TCEFORM.tt_content.layout.addItems.300 = Ganz toll

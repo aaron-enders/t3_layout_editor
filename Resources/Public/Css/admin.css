@@ -1,0 +1,64 @@
+body{
+	background-color: #f1f1f1;
+	margin:20px;
+}
+body *{
+	color:rgb(117, 117, 117);
+	// font-family: Roboto;
+}
+fieldset{
+	background-color:#fff;
+
+	
+	margin-bottom:20px;
+	width:100%;
+	display:block;
+	border:none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+fieldset *{
+	color:black;
+}
+fieldset input{
+	// background-color:#f8ffd7;
+	border:1px solid #f1f1f1;
+}
+legend{
+	position: relative;
+	box-sizing: border-box;
+	width: calc(100% + 16px);
+	margin-left: -8px;
+
+}
+legend input{
+	border: none;
+	padding: 7px 9px;
+	background-color: #666;
+	width: 100%;
+	font-size: 14px;
+	color: white;
+	border-radius: 0;
+	box-sizing: border-box;
+}
+legend .material-icons{
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	color: white;
+	background: grey;
+	border-radius: 100%;
+	padding: 5px;
+}
+.add, .delete{
+	cursor:pointer;
+	display: inline-block;
+}
+.add .material-icons{
+	top: 7px;
+	position: relative;
+}
+.layoutEditor section{
+	width:30%;
+	margin-right:3%;
+	float:left;
+}
