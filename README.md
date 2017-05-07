@@ -1,4 +1,4 @@
-# Layout Editor for Typo3
+# Typo3 Content Layout Editor
 ### Configure Content Elements Layouts without Typoscript
 
 Automaticly generates and integrates the necessary Typoscript and TS-Config.
