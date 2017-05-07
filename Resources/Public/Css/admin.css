@@ -6,6 +6,9 @@ body *{
 	color:rgb(117, 117, 117);
 	// font-family: Roboto;
 }
+.copyrightInfo{
+	float:right;
+}
 fieldset{
 	background-color:#fff;
 

@@ -10,8 +10,8 @@
 conf.py:
   copyright: 2017
   project: Layout Editor
-  version: 1.0
-  release: 1.0
+  version: 0.1
+  release: 0.1
   intersphinx_mapping:
     t3tsref:
     - http://docs.typo3.org/typo3cms/TyposcriptReference/

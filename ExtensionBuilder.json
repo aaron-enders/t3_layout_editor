@@ -65,7 +65,7 @@
             "skipGenerateDocumentationTemplate": false,
             "sourceLanguage": "en",
             "state": "beta",
-            "version": "1.0"
+            "version": "0.0.1"
         },
         "extensionKey": "layout_editor",
         "name": "Layout Editor",
