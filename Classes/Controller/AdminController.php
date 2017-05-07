@@ -58,6 +58,14 @@ tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'.value = <div c
 			}
 			fclose($tsConfigFile);
 			fclose($tsFile);
+			$this->addFlashMessage(
+			    'Configuration saved.',
+			    '',
+			    \TYPO3\CMS\Core\Messaging\FlashMessage::OK
+			);
+
+
+
 			
 		}
 
