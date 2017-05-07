@@ -1,6 +1,2 @@
 tt_content.stdWrap.innerWrap.cObject.100=TEXT
-tt_content.stdWrap.innerWrap.cObject.100.value = <div class="toll2">|</div>
-tt_content.stdWrap.innerWrap.cObject.215=TEXT
-tt_content.stdWrap.innerWrap.cObject.215.value = <div class="superdupa3">|</div>
-tt_content.stdWrap.innerWrap.cObject.300=TEXT
-tt_content.stdWrap.innerWrap.cObject.300.value = <div class="superdupa4">|</div>
+tt_content.stdWrap.innerWrap.cObject.100.value = <div class="wrapper">|</div>
