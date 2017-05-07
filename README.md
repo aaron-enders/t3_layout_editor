@@ -1,4 +1,4 @@
-# t3_layout_editor
-Layout Editor for Typo3
+# Layout Editor for Typo3
+Configure Content Elements Layouts without Typoscript
 
 ![Alt text](screenshot.jpg?raw=true "Screenshot")
