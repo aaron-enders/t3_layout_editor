@@ -13,4 +13,4 @@ module.tx_layouteditor_admin {
 
 
 <INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/layout_editor/Configuration/TypoScript/main.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/layout_editor/Configuration/TypoScript/temp.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:uploads/tx_layouteditor/TypoScript/temp.txt">

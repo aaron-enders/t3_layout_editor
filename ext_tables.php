@@ -33,7 +33,7 @@ if (TYPO3_MODE === 'BE') {
 
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-'<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/temp.txt">'
+'<INCLUDE_TYPOSCRIPT: source="FILE:uploads/tx_layouteditor/PageTS/temp.txt">'
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript($_EXTKEY, 'setup', '
