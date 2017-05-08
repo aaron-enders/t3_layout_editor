@@ -1,4 +1,8 @@
-
+if (typeof jQuery == 'undefined') {  
+    t3jQuery = TYPO3.jQuery;
+} else {
+    t3jQuery = jQuery;
+}
 
 ( function($) {
 	
@@ -35,4 +39,4 @@
 	})
 
 
-} ) ( TYPO3.jQuery );
+} ) ( t3jQuery );
