@@ -18,6 +18,7 @@ fieldset{
 	display:block;
 	border:none;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	padding: 0 17px 20px 17px;
 }
 fieldset *{
 	color:black;
@@ -29,8 +30,8 @@ fieldset input{
 legend{
 	position: relative;
 	box-sizing: border-box;
-	width: calc(100% + 16px);
-	margin-left: -8px;
+	width: calc(100% + 34px);
+	margin-left: -17px;
 
 }
 legend input{
@@ -45,8 +46,8 @@ legend input{
 }
 legend .material-icons{
 	position: absolute;
-	right: 3px;
-	top: 3px;
+	right: 4px;
+	top: 13px;
 	color: white;
 	background: grey;
 	border-radius: 100%;
