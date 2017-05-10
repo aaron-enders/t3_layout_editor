@@ -15,10 +15,10 @@ Links
 	https://typo3.org/extensions/repository/view/layout_editor
 
 :Bug Tracker:
-	https://forge.typo3.org/projects/extension-<extension key>/issues
+	
 
 :Git Repository:
-	https://github.com/<username>/<extension key>
+	https://github.com/aaron-enders/t3_layout_editor
 
 :Contact:
-	`@<username> <https://twitter.com/your-username>`__
+	`mail@aaron-enders.de`__
