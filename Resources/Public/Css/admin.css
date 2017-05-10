@@ -2,7 +2,7 @@ body{
 	background-color: #f1f1f1;
 	margin:20px;
 }
-body *{
+html body, html body *{
 	color:rgb(117, 117, 117);
 }
 body#typo3-index-php{
@@ -64,4 +64,35 @@ legend .material-icons{
 	width:30%;
 	margin-right:3%;
 	float:left;
+}
+
+/* ---------------------------------------------------------------- */
+
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul.tabs li{
+	background: none;
+	color: #222;
+	display: inline-block;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+ul.tabs li.current{
+	background: #d8d8d8;
+	color: #222;
+}
+
+.tab-content{
+	display: none;
+	background:#d8d8d8;
+	padding: 15px;
+	overflow: hidden;
+}
+
+.tab-content.current{
+	display: inherit;
 }
