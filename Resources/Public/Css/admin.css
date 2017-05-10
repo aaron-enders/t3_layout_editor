@@ -4,15 +4,16 @@ body{
 }
 body *{
 	color:rgb(117, 117, 117);
-	// font-family: Roboto;
+}
+body#typo3-index-php{
+	margin:20px;
+	background-color: #f1f1f1;
 }
 .copyrightInfo{
 	float:right;
 }
-fieldset{
+body fieldset{
 	background-color:#fff;
-
-	
 	margin-bottom:20px;
 	width:100%;
 	display:block;
@@ -24,15 +25,13 @@ fieldset *{
 	color:black;
 }
 fieldset input{
-	// background-color:#f8ffd7;
 	border:1px solid #f1f1f1;
 }
-legend{
+body legend{
 	position: relative;
 	box-sizing: border-box;
 	width: calc(100% + 34px);
 	margin-left: -17px;
-
 }
 legend input{
 	border: none;
