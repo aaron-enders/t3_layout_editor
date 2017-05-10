@@ -18,7 +18,6 @@ includeJsFiles="{0:'{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlin
 </f:be.menus.actionMenu>
 </f:comment>
 
-
 <div class="copyrightInfo">© <a href="http://aaron-enders.de" target="_blank">aaron-enders.de</a></div>
 
 
@@ -29,16 +28,20 @@ includeJsFiles="{0:'{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlin
 
 <f:flashMessages />
 <br>
+<div class="layoutEditor">
+<section>
+<form method="post">
+<input type="hidden" name="tx_layouteditor_tools_layouteditoradmin[sent]" value="true">
 <ul class="tabs">
 		<li class="tab-link current" data-tab="tab-1">Content Layouts</li>
-		<li class="tab-link" data-tab="tab-2">Content Frames</li>
+		<li class="tab-link" data-tab="tab-2">Frontend Layouts</li>
 	</ul>
 
 	<div id="tab-1" class="tab-content current">
 		
-			<div class="layoutEditor">
-				<section>
-					<form method="post">
+			
+				
+					
 						<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
 							<fieldset index="{iterator.index}">
 									<legend>
@@ -58,35 +61,64 @@ includeJsFiles="{0:'{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlin
 							</fieldset>
 						</f:for>
 						<div class="add"><i class="material-icons">add_box</i> Add new</div>
-						<br><br>
-						<span style="font-size: 9px;">Settings will be usable without any more configuration.<br>
-						If you want to use the settings without this extension, use the TsConfig and Typoscript on the right.</span><br><br>
-						<input type="submit" value="Save">
+						
 
-					</form>
-				</section>
+					
+				
+			
+
+	</div>
+	<div id="tab-2" class="tab-content">
+		 <f:for each="{frontendLayouts}" as="frontendLayout" key="number"  iteration="iterator">
+							<fieldset index="{iterator.index}">
+									<legend>
+										<div class="delete"><i class="material-icons">delete</i></div>
+										<f:form.textfield name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][label]" value="{frontendLayout.label}"  />
+									</legend>
+									<table width="100%">
+										<tr>
+											<td><label for="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]">Number:</label></td>
+											<td><label for="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][class]">Class:</label></td>
+										</tr>
+										<tr>
+											<td><f:form.textfield name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]" id="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]" value="{number}" class="number" /></td>
+											<td><f:form.textfield name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][class]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" value="{frontendLayout.class}" /></td>
+										</tr>
+									</table>
+							</fieldset>
+						</f:for>
+						<div class="add"><i class="material-icons">add_box</i> Add new</div>
+	</div>
+
+	<br>
+<input type="submit" value="Save">
+</form>
+</section>
 				<section style="font-size: 9px;">
 					<h3>Typoscript</h3>
 					<f:format.raw>{tsMainFile}</f:format.raw><br>
 					<f:format.raw>{tsFile}</f:format.raw>
 
 					<h3>CSS Snippet</h3>
+					<f:for each="{frontendLayouts}" as="frontendLayout" key="number"  iteration="iterator">
+						body.{frontendLayout.class}{<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {frontendLayout.label} */<br>
+						}<br>	
+					</f:for>
 					<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
 						.{contentLayout.class}{<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {contentLayout.label} */<br>
 						}<br>	
 					</f:for>
+					
 				</section>
 				<section style="font-size: 9px;">
 					<h3>TsConfig</h3>
 					<f:format.raw>{tsConfigFile}</f:format.raw>
 				</section>
-			</div>
-
-	</div>
-	<div id="tab-2" class="tab-content">
-		 Coming soon
-	</div>
-
+</div>
+<br>
+						<span style="font-size: 9px;">Settings will be usable without any more configuration.<br>
+						If you want to use the settings without this extension, use the TsConfig and Typoscript on the right.</span>
 
 </f:be.container>  

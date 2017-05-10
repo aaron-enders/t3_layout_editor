@@ -37,41 +37,72 @@ class AdminController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void 
 	 */
 	public function indexAction() {
-		$tempConfigPathOriginal = PATH_site . "/typo3conf/ext/layout_editor/Configuration/";
-		$tempConfigPath = PATH_site . "/uploads/tx_layouteditor/";
+		$tempConfigPathOriginal = PATH_site . "typo3conf/ext/layout_editor/Configuration/";
+		$tempConfigPath = PATH_site . "uploads/tx_layouteditor/";
 
 		$args = $this->request->getArguments();
+		$changes = false;
+		
 
-		//After saving Content Layouts:
-		if ($contentLayouts = $args['contentLayouts']){
+
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+	//saving Content Layouts:
+/* -------------------------------------------------------------------------------------------------------------------- */
+		
+		if ($args['sent']){
 			$tsConfigFile = fopen($tempConfigPath.'/PageTS/temp.txt', "w");
 			$tsFile = fopen($tempConfigPath.'/TypoScript/temp.txt', "w");
-			foreach ($contentLayouts as $index => $contentLayout){
-				$tsConfig = '#'.$contentLayout['class'].'
+
+			if ($contentLayouts = $args['contentLayouts']){
+			
+				foreach ($contentLayouts as $index => $contentLayout){
+					$tsConfig = '#'.$contentLayout['class'].'
 TCEFORM.tt_content.layout.addItems.'.$contentLayout['number'].' = '.$contentLayout['label'].'
 ';
 				$ts = 'tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'=TEXT
 tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'.value = <div class="'.$contentLayout['class'].'">|</div>
 ';
-				fwrite($tsConfigFile, $tsConfig)  or die('fwrite failed');
-				fwrite($tsFile, $ts)  or die('fwrite failed');
+					fwrite($tsConfigFile, $tsConfig)  or die('fwrite failed');
+					fwrite($tsFile, $ts)  or die('fwrite failed');
+				}
+				
+				$changes = true;
 			}
+			$ts = "";
+			$tsConfig = "";
+			if ($frontendLayouts = $args['frontendLayouts']){
+				foreach ($frontendLayouts as $index => $frontendLayout){
+					$tsConfig = '#_frontend_'.$frontendLayout['class'].'
+TCEFORM.pages.layout.addItems.'.$frontendLayout['number'].' = '.$frontendLayout['label'].'
+';
+					$ts = 'page.bodyTagCObject.'.$frontendLayout['number'].' = TEXT
+page.bodyTagCObject.'.$frontendLayout['number'].'.wrap = <body class="|">
+page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['class'].'
+';
+					fwrite($tsConfigFile, $tsConfig)  or die('fwrite failed');
+					fwrite($tsFile, $ts)  or die('fwrite failed');
+				}
+				$changes = true;
+			}
+			if ($changes){
+				
+				$this->addFlashMessage(
+				    'Configuration saved.',
+				    '',
+				    \TYPO3\CMS\Core\Messaging\FlashMessage::OK
+				);	
+			}
+			
 			fclose($tsConfigFile);
 			fclose($tsFile);
-			$this->addFlashMessage(
-			    'Configuration saved.',
-			    '',
-			    \TYPO3\CMS\Core\Messaging\FlashMessage::OK
-			);
-
-
-
-			
 		}
+		
 
 /* -------------------------------------------------------------------------------------------------------------------- */
 	// Read Current Settings //	
 /* -------------------------------------------------------------------------------------------------------------------- */
+		$frontendLayouts = array();
 		$contentLayouts = array();
 		$tsConfigFile = ($tempConfigPath.'/PageTS/temp.txt');
 		$tsFile = ($tempConfigPath.'/TypoScript/temp.txt');
@@ -87,15 +118,33 @@ tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'.value = <div c
 			}
 
 			if (!file_exists($tempConfigPath .'/PageTS/temp.txt')){
-				
+				if (!file_exists($tempConfigPath .'/PageTS/')) {
+				    if (!mkdir($tempConfigPath .'PageTS/', 0777, true)){
+				    	echo "Couldnt create folder.<br>";
+						echo $tempConfigPath .'PageTS/';
+						die();
+				    }
+
+				}
 			    if (!copy($tempConfigPathOriginal.'/PageTS/temp.txt', $tempConfigPath .'/PageTS/temp.txt')){
 			    	echo "<br>Copy failed<br>";
 			    }
 			}
 
 			if (!file_exists($tempConfigPath .'/TypoScript/temp.txt')){
+				if (!file_exists($tempConfigPath .'/TypoScript/')) {
+				    mkdir($tempConfigPath .'/TypoScript/', 0777, true);
+				}else{
+					echo "Couldnt create folder.<br>";
+					die();
+				}
 				if (!copy($tempConfigPathOriginal.'/TypoScript/temp.txt', $tempConfigPath .'/TypoScript/temp.txt')){
-			    	"Copy failed";
+
+			    	echo "Copy failed. <br>";
+			    	echo "Source: ".$tempConfigPathOriginal.'/TypoScript/temp.txt';
+			    	echo "<br>Target: ".$tempConfigPath .'/TypoScript/temp.txt';
+			    	die();
+
 			    }
 			    
 			}
@@ -109,17 +158,33 @@ tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'.value = <div c
 		while (!feof($tsConfigHandle)) {
 		  $line = fgets($tsConfigHandle);
 		  if (trim($line) != ""){
+		  		
+		  		
 				if (substr($line, 0, 1) == '#') {
+					//if Frontend Layout:
+					if (substr( $line, 0, 11 ) == "#_frontend_"){
+						$line = str_replace('#_frontend_', '#', $line);
+						$type = "frontend";
+					}else{
+						$type = "content";
+					}
 					$split = explode("#",$line);
 					$class = trim(preg_replace('/\s\s+/', ' ', $split[1]));
 				}else{
+
 					$config = explode("addItems.",$line)[1];
 					$label = trim(explode(" = ",$config)[1]);
 					$number = explode(" = ",$config)[0];
-
-					$contentLayouts[$number]["class"] = $class;
-					$contentLayouts[$number]["label"] = $label;
+					if ($type == "frontend"){
+						$frontendLayouts[$number]["class"] = $class;
+						$frontendLayouts[$number]["label"] = $label;
+					}else{
+						$contentLayouts[$number]["class"] = $class;
+						$contentLayouts[$number]["label"] = $label;
+					}
+					
 				}
+
 				
 		  }
 		  
@@ -130,6 +195,7 @@ tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'.value = <div c
 		$this->view->assign('tsConfigFile', nl2br(htmlentities(file_get_contents($tsConfigFile, true))));
 		$this->view->assign('tsMainFile', nl2br(htmlentities(file_get_contents($tsMainFile, true))));
 		$this->view->assign('contentLayouts', $contentLayouts);
+		$this->view->assign('frontendLayouts', $frontendLayouts);
 	}
 
 }
