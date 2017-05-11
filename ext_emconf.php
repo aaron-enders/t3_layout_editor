@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Layout Editor',
-	'description' => 'Configure Content Elements Layouts without Typoscript.',
+	'description' => 'Configure content elements and frontend layouts without Typoscript. Simply add a layout and your configured class will be ready for use with css.',
 	'category' => 'module',
 	'author' => 'Aaron Enders',
 	'author_email' => 'mail@aaron-enders.de',
