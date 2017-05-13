@@ -112,9 +112,6 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 		if (FALSE === $tsConfigHandle) {
 			//Create needed files:
 			if (!file_exists($tempConfigPath)) {
-			    mkdir($tempConfigPath, 0777, true);
-			    mkdir($tempConfigPath.'/PageTS', 0777, true);
-			    mkdir($tempConfigPath.'/TypoScript', 0777, true);
 			}
 
 			if (!file_exists($tempConfigPath .'/PageTS/temp.txt')){
@@ -130,7 +127,6 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 			    	echo "<br>Copy failed<br>";
 			    }
 			}
-
 			if (!file_exists($tempConfigPath .'/TypoScript/temp.txt')){
 				if (!file_exists($tempConfigPath .'/TypoScript/')) {
 				    mkdir($tempConfigPath .'/TypoScript/', 0777, true);
@@ -150,16 +146,12 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 			}
 		    //exit("Konnte Stream von URL nicht öffnen");
 		    $tsConfigHandle = fopen($tsConfigFile, "r");
-
 		}
-
 		$tsConfig = '';
 		//Read tsConfig:
 		while (!feof($tsConfigHandle)) {
 		  $line = fgets($tsConfigHandle);
 		  if (trim($line) != ""){
-		  		
-		  		
 				if (substr($line, 0, 1) == '#') {
 					//if Frontend Layout:
 					if (substr( $line, 0, 11 ) == "#_frontend_"){
