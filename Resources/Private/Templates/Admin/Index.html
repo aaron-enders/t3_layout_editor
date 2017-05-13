@@ -92,32 +92,44 @@ includeJsFiles="{0:'{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlin
 
 	<br>
 <input type="submit" value="Save">
-<br>
-						<span style="font-size: 9px;">Settings will be usable without any more configuration.<br>
-						If you want to use the settings without this extension, use the TsConfig and Typoscript on the right.</span>
+
 </form>
 </section>
 				<section style="font-size: 9px;">
-					<h3>Typoscript</h3>
-					<f:format.raw>{tsMainFile}</f:format.raw><br>
-					<f:format.raw>{tsFile}</f:format.raw>
-
-					<h3>CSS Snippet</h3>
-					<f:for each="{frontendLayouts}" as="frontendLayout" key="number"  iteration="iterator">
-						body.{frontendLayout.class}{<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {frontendLayout.label} */<br>
-						}<br>	
-					</f:for>
-					<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
-						.{contentLayout.class}{<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {contentLayout.label} */<br>
-						}<br>	
-					</f:for>
+					<a class="info" href="javascript:void(0)"><i class="material-icons">info</i></a>
+					<div>
+						<br><br>
+						<span style="font-size: 9px;">Settings will be usable without any more configuration.<br>
+						If you want to use the settings without this extension, you can use the TsConfig and Typoscript below.</span>
+						<h3>Typoscript</h3>
+					
+						<f:format.raw>{tsMainFile}</f:format.raw><br>
+						<f:format.raw>{tsFile}</f:format.raw>
+					</div>
+					
+					
 					
 				</section>
 				<section style="font-size: 9px;">
-					<h3>TsConfig</h3>
-					<f:format.raw>{tsConfigFile}</f:format.raw>
+					
+					<div>
+						<h3>TsConfig</h3>
+						<f:format.raw>{tsConfigFile}</f:format.raw>
+					</div>
+
+					<div>
+						<h3>CSS Snippet</h3>
+						<f:for each="{frontendLayouts}" as="frontendLayout" key="number"  iteration="iterator">
+							body.{frontendLayout.class}{<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {frontendLayout.label} */<br>
+							}<br>	
+						</f:for>
+						<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
+							.{contentLayout.class}{<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {contentLayout.label} */<br>
+							}<br>	
+						</f:for>
+					</div>
 				</section>
 </div>
 

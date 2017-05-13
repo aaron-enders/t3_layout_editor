@@ -41,4 +41,7 @@ if (typeof jQuery == 'undefined') {
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
 	})
+	$(document).on("click", "section .info",function() {
+		$("section > div").slideToggle(200);
+	})
 } ) ( t3jQuery );

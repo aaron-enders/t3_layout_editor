@@ -68,6 +68,12 @@ legend .material-icons{
 	margin-right:3%;
 	float:left;
 }
+section .info{
+	cursor:pointer;
+}
+section > div{
+	display:none;
+}
 
 /* ---------------------------------------------------------------- */
 
