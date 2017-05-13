@@ -11,13 +11,7 @@
 Administrator Manual
 ====================
 
-Target group: **Administrators**
-
 Configure and install Layout Editor.
-
-.. figure:: ../Images/screenshot.jpg
-   :alt: Layout Editor
-
 
 .. _admin-installation:
 

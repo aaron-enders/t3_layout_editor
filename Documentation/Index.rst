@@ -23,9 +23,10 @@ Layout Editor
 		en
 
 	:Description:
+		Configure content elements and frontend layouts without Typoscript. Simply add a layout and your configured class will be ready for use with css.
 
 	:Keywords:
-		comma,separated,list,of,keywords
+		 layout,typoscript,tsconfig,template,classes,css,editing
 
 	:Copyright:
 		2017
@@ -53,3 +54,4 @@ Layout Editor
 	:titlesonly:
 
 	Administrator/Index
+	Screenshot/Index
