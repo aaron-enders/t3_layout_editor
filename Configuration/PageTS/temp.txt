@@ -1,4 +1,4 @@
 #wrapper
-TCEFORM.tt_content.layout.addItems.100 = Wrapper
-#_frontend_infoPage
-TCEFORM.pages.layout.addItems.100 = Info Page
+TCEFORM.tt_content.layout.addItems.101 = Wrapper
+#_frontend_homepage
+TCEFORM.pages.layout.addItems.101 = Homepage

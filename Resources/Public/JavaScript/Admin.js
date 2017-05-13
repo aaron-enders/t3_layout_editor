@@ -17,7 +17,7 @@ if (typeof jQuery == 'undefined') {
 			$(this).attr("name", newName_str);
 			$(this).attr("id", newName_str);
 		});
-		$(this).closest(".tab-content").find('fieldset:last-of-type .number').val(((index)+100));
+		$(this).closest(".tab-content").find('fieldset:last-of-type .number').val(((index+1)+100));
 
 	})
 	$(document).on("click", ".layoutEditor .delete",function() {

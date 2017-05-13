@@ -1,16 +1,9 @@
+page = PAGE
+page.typeNum = 0
+page.bodyTagCObject = CASE
+page.bodyTagCObject.key.field = layout
+page.bodyTagCObject.default = TEXT
+page.bodyTagCObject.default.value = <body>
+page.bodyTagCObject.0 < .default
 tt_content.stdWrap.innerWrap.cObject= CASE
 tt_content.stdWrap.innerWrap.cObject.key.field = layout
-page = PAGE
-page {
-	typeNum = 0
-	bodyTagCObject = CASE
-	bodyTagCObject {
-		key.field = layout
-		default = TEXT
-		default.value = <body>
-		0 < .default
-	}
-}
-page.bodyTagCObject.100 = TEXT
-page.bodyTagCObject.100.wrap = <body class="|">
-page.bodyTagCObject.100.value = hideRightColumn

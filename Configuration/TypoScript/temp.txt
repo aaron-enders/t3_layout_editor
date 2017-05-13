@@ -1,2 +1,5 @@
-tt_content.stdWrap.innerWrap.cObject.100=TEXT
-tt_content.stdWrap.innerWrap.cObject.100.value = <div class="wrapper">|</div>
+tt_content.stdWrap.innerWrap.cObject.101=TEXT
+tt_content.stdWrap.innerWrap.cObject.101.value = <div class="wrapper">|</div>
+page.bodyTagCObject.101 = TEXT
+page.bodyTagCObject.101.wrap = <body class="|">
+page.bodyTagCObject.101.value = homepage
