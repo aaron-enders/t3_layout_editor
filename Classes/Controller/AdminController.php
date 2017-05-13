@@ -114,8 +114,8 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 			if (!file_exists($tempConfigPath)) {
 			}
 
-			if (!file_exists($tempConfigPath .'/PageTS/temp.txt')){
-				if (!file_exists($tempConfigPath .'/PageTS/')) {
+			if (!file_exists($tempConfigPath .'PageTS/temp.txt')){
+				if (!is_dir($tempConfigPath .'PageTS/')) {
 				    if (!mkdir($tempConfigPath .'PageTS/', 0777, true)){
 				    	echo "Couldnt create folder.<br>";
 						echo $tempConfigPath .'PageTS/';
@@ -127,13 +127,14 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 			    	echo "<br>Copy failed<br>";
 			    }
 			}
-			if (!file_exists($tempConfigPath .'/TypoScript/temp.txt')){
-				if (!file_exists($tempConfigPath .'/TypoScript/')) {
-				    mkdir($tempConfigPath .'/TypoScript/', 0777, true);
-				}else{
-					echo "Couldnt create folder.<br>";
-					die();
+			if (!file_exists($tempConfigPath .'TypoScript/temp.txt')){
+				if (!is_dir($tempConfigPath .'TypoScript/')) {
+				    if(!mkdir($tempConfigPath .'TypoScript/', 0777, true)){
+						echo "Couldnt create folder.<br>";
+						die();
+					}
 				}
+				
 				if (!copy($tempConfigPathOriginal.'/TypoScript/temp.txt', $tempConfigPath .'/TypoScript/temp.txt')){
 
 			    	echo "Copy failed. <br>";
