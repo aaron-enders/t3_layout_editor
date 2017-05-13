@@ -108,7 +108,7 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 		$tsFile = ($tempConfigPath.'/TypoScript/temp.txt');
 		$tsMainFile = ($tempConfigPathOriginal.'/TypoScript/main.txt');
 
-		$tsConfigHandle = fopen($tsConfigFile, "r");
+		@$tsConfigHandle = fopen($tsConfigFile, "r");
 		if (FALSE === $tsConfigHandle) {
 			//Create needed files:
 			if (!file_exists($tempConfigPath)) {
