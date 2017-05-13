@@ -14,9 +14,6 @@ Links
 :TER:
 	https://typo3.org/extensions/repository/view/layout_editor
 
-:Bug Tracker:
-	
-
 :Git Repository:
 	https://github.com/aaron-enders/t3_layout_editor
 
