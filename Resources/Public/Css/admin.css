@@ -12,6 +12,7 @@ body#typo3-index-php{
 }
 .copyrightInfo{
 	float:right;
+	text-align: right;
 }
 body fieldset{
 	background-color:#fff;
