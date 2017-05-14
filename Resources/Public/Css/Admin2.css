@@ -1,0 +1,122 @@
+body{
+	// background-color: #f1f1f1;
+	background-color: #fff;
+	margin:20px;
+}
+html body, html body *{
+	color:rgb(117, 117, 117);
+}
+body#typo3-index-php{
+	margin:20px;
+	background-color: #f1f1f1;
+}
+.copyrightInfo{
+	float:right;
+	text-align: right;
+}
+body fieldset{
+	background-color:#fff;
+	width:100%;
+	display:block;
+	border:none;
+	
+	padding: 0 17px 20px 17px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+body fieldset:hover{
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+fieldset *{
+	color:black;
+}
+fieldset input{
+	border:1px solid #f1f1f1;
+}
+body legend{
+	position: relative;
+	box-sizing: border-box;
+	width: calc(100% + 36px);
+	margin-left: -18px;
+}
+legend input{
+	border: none;
+	padding: 7px 9px;
+	background-color: #666;
+	width: 100%;
+	font-size: 14px;
+	color: white;
+	border-radius: 0;
+	box-sizing: border-box;
+}
+legend .material-icons{
+	position: absolute;
+	right: 4px;
+	top: 13px;
+	color: white;
+	background: grey;
+	border-radius: 100%;
+	padding: 5px;
+}
+.add, .delete{
+	cursor:pointer;
+	display: inline-block;
+}
+.tab-content fieldset:first-of-type .delete{
+	display:none;
+}
+.add .material-icons{
+	top: 7px;
+	position: relative;
+}
+.layoutEditor section{
+	width:30%;
+	margin-right:3%;
+	float:left;
+}
+section .info{
+	cursor:pointer;
+}
+section > div{
+	display:none;
+}
+
+/* ---------------------------------------------------------------- */
+
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul.tabs li{
+	background-color: #ededed;
+	color: #222;
+	display: inline-block;
+	padding: 10px 15px;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	border-bottom-width:0;
+}
+
+ul.tabs li.current{
+	background-color: #fff;
+	color: #222;
+}
+
+.tab-content{
+	display: none;
+	background:#f7f7f7;
+	padding: 15px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+}
+
+.tab-content.current{
+	display: inherit;
+}
+
+/* ---------------------------------------------------------------- */
+
+.alert *{
+	color:white;
+}
