@@ -62,9 +62,6 @@ legend .material-icons{
 	cursor:pointer;
 	display: inline-block;
 }
-.tab-content fieldset:first-of-type .delete{
-	display:none;
-}
 .add .material-icons{
 	top: 7px;
 	position: relative;

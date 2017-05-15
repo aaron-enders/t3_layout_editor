@@ -4,25 +4,54 @@ if (typeof jQuery == 'undefined') {
     t3jQuery = jQuery;
 }
 ( function($) {
+
+
 	$(document).on("click", ".layoutEditor .add",function() {
-		var index_str = $(this).closest(".tab-content").find("fieldset:last-of-type .number").attr("name");
-		var index_start_pos = index_str.indexOf('Layouts][') + 9;
-		var index_end_pos = index_str.indexOf(']',index_start_pos);
-		var index = parseInt(index_str.substring(index_start_pos,index_end_pos)) + 1;
-		var ele = $(this).closest(".tab-content").find('fieldset:last-of-type').clone(true);
-		$(this).closest(".tab-content").find('fieldset:last-of-type').after(ele);
-		$(this).closest(".tab-content").find("fieldset:last-of-type input[type='text']").each(function( e ) {
-			var newName_str = $(this).attr("name");
-			newName_str = newName_str.replace(/\Layouts\]\[(.+?)\]/,"Layouts]["+index+"]");
-			$(this).attr("name", newName_str);
-			$(this).attr("id", newName_str);
-		});
-		$(this).closest(".tab-content").find('fieldset:last-of-type .number').val(((index+1)+100));
+		if ( $(this).closest(".tab-content").find( "fieldset:last-of-type .number" ).length ) {
+			var index_str = $(this).closest(".tab-content").find("fieldset:last-of-type .number").attr("name");
+			var index_start_pos = index_str.indexOf('Layouts][') + 9;
+			var index_end_pos = index_str.indexOf(']',index_start_pos);
+			var index = parseInt(index_str.substring(index_start_pos,index_end_pos)) + 1;
+			var ele = $(this).closest(".tab-content").find('fieldset:last-of-type').clone(true);
+			$(this).closest(".tab-content").find('fieldset:last-of-type').after(ele);
+			$(this).closest(".tab-content").find("fieldset:last-of-type input[type='text']").each(function( e ) {
+				var newName_str = $(this).attr("name");
+				newName_str = newName_str.replace(/\Layouts\]\[(.+?)\]/,"Layouts]["+index+"]");
+				$(this).attr("name", newName_str);
+				$(this).attr("id", newName_str);
+				$(this).attr("value", "");
+			});
+			$(this).closest(".tab-content").find('fieldset:last-of-type .number').val(((index+1)+100));
+		}else{
+			layoutType = $(this).closest(".tab-content").attr("layoutType");
+			$(this).closest(".tab-content").html(`
+			<fieldset index="0">
+				<legend>
+					<div class="delete"><i class="material-icons">delete</i></div>
+					<input placeholder="Name for your layout" name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][label]" value="" 
+					required="required" type="text" oninvalid="invalid()">
+				</legend>
+				<table width="100%">
+					<tbody><tr>
+						<td><label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]">Number:</label></td>
+						<td><label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]">Class:</label></td>
+					</tr>
+					<tr>
+						<td><input oninvalid="invalid()" placeholder="Must be unique!" class="number" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" 
+						name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" value="101" required="required" type="text"></td>
+						<td><input oninvalid="invalid()" placeholder="CSS class name" class="form-control" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" 
+						name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" value="" required="required" type="text"></td>
+					</tr>
+				</tbody></table>
+			</fieldset>`);
+
+		}
+		
 
 	})
 	$(document).on("click", ".layoutEditor .delete",function() {
 		var count = $(this).closest(".tab-content").find("input[id*='tx_layouteditor_tools_layouteditoradmin[']").length;
-		if(count > 2){
+		if(count > 1){
 			if (confirm("Are you sure?") == true) {
 				var ele = $('.layoutEditor fieldset:last-of-type').clone(true);
 				$(this).closest("fieldset").remove();
@@ -45,3 +74,11 @@ if (typeof jQuery == 'undefined') {
 		$("section > div").slideToggle(200);
 	})
 } ) ( t3jQuery );
+var invalidSet = false;
+function invalid(){
+	if (invalidSet == false){
+		top.TYPO3.Notification.warning('Please fill out all fields.', 'Something is wrong, please check all required fields.');
+	}
+	invalidSet = true;
+	setTimeout(function(){ invalidSet = false; }, 3000);
+}
