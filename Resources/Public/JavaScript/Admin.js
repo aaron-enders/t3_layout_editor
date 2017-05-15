@@ -80,5 +80,5 @@ function invalid(){
 		top.TYPO3.Notification.warning('Please fill out all fields.', 'Something is wrong, please check all required fields.');
 	}
 	invalidSet = true;
-	setTimeout(function(){ invalidSet = false; }, 3000);
+	setTimeout(function(){ invalidSet = false; }, 5000);
 }
