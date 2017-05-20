@@ -66,6 +66,9 @@ legend .material-icons{
 	top: 7px;
 	position: relative;
 }
+.add{
+	margin-top: 6px;
+}
 .layoutEditor section{
 	width:30%;
 	margin-right:3%;

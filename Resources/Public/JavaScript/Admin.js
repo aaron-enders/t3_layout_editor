@@ -24,7 +24,7 @@ if (typeof jQuery == 'undefined') {
 			$(this).closest(".tab-content").find('fieldset:last-of-type .number').val(((index+1)+100));
 		}else{
 			layoutType = $(this).closest(".tab-content").attr("layoutType");
-			$(this).closest(".tab-content").html(`
+			$(this).closest(".tab-content").prepend(`
 			<fieldset index="0">
 				<legend>
 					<div class="delete"><i class="material-icons">delete</i></div>

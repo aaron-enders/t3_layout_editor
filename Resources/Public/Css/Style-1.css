@@ -8,9 +8,13 @@ html body, html body *{
 .tab-content{
 	border: none;
 	background-color:white;
+	padding-top:0;
 }
 ul.tabs li{
 	border:none;
+}
+legend{
+	border-bottom:none;
 }
 legend input[type="text"]{
 	background-color: white;
