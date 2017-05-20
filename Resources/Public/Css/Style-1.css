@@ -13,7 +13,7 @@ html body, html body *{
 ul.tabs li{
 	border:none;
 }
-legend{
+body legend{
 	border-bottom:none;
 }
 legend input[type="text"]{
