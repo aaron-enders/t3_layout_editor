@@ -1,4 +1,5 @@
-body{
+body,
+body#typo3-index-php{
 	background-color: #008AFF;
 }
 html body, html body *{
