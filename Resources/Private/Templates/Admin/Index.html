@@ -1,15 +1,13 @@
 <f:comment>
-<f:be.container pageTitle="foo" enableClickMenu="false" loadExtJs="true" loadExtJsTheme="false" enableExtJsDebug="true" loadJQuery="true" includeCssFiles="{0: '{f:uri.resource(path:\'Css/Admin.css\')}'}" includeJsFiles="{0: '{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlineLabels="{0: 'label1', 1: 'label2'}">
+<f:be.container pageTitle="foo" enableClickMenu="false" loadExtJs="true" loadExtJsTheme="false" enableExtJsDebug="true" loadJQuery="true" includeCssFiles="{0: '{f:uri.resource(path:\'Css/Admin.css\')}', 1: '{f:uri.resource(path:\'Css/Style-1.css\')}'}" includeJsFiles="{0: '{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlineLabels="{0: 'label1', 1: 'label2'}">
 </f:be.container>  
 </f:comment>
 
-<f:be.container loadJQuery="true" includeCssFiles="{0: '{f:uri.resource(path:\'Css/Admin.css\')}'}" loadExtJs="true" enableExtJsDebug="true" loadExtJsTheme="false" 
+<f:be.container loadJQuery="true" includeCssFiles="{0: '{f:uri.resource(path:\'Css/Admin.css\')}', 1: '{f:uri.resource(path:\'Css/Style-1.css\')}'}" loadExtJs="true" enableExtJsDebug="true" loadExtJsTheme="false" 
 includeJsFiles="{0:'{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlineLabels="{0: 'admin'}">
-
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-
 <f:comment>
 <f:debug>{_all}</f:debug>
 <f:be.menus.actionMenu>
@@ -18,122 +16,124 @@ includeJsFiles="{0:'{f:uri.resource(path:\'JavaScript/Admin.js\')}'}" addJsInlin
 </f:be.menus.actionMenu>
 </f:comment>
 
-<div class="copyrightInfo">For bugs and suggestions, please contact <a href="mailto:mail@aaron-enders.de">mail@aaron-enders.de</a></div>
+<script>
 
+var lkeyClass = "<f:translate key='class' />";
+var lkeyClassPlaceholder = "<f:translate key='classPlaceholder' />";
+var lkeyNumber = "<f:translate key='number' />";
+var lkeyLayoutName = "<f:translate key='layoutName' />";
+var lkeyUnique = "<f:translate key='unique' />";
+var lkeyDelete = "<f:translate key='delete' />";
 
+var lkeyFillOut = "<f:translate key='fillOut' />";
+var lkeySomethingWrong = "<f:translate key='somethingWrong' />";
+</script>
 
+<div class="copyrightInfo"><f:translate key='copyright' /> <a href="mailto:mail@aaron-enders.de">mail@aaron-enders.de</a></div>
 
-
-<h1>Layout Configuration</h1>
+<h1><f:translate key='headline' /></h1>
 
 <f:flashMessages />
 <br>
 <div class="layoutEditor">
-<section>
-<form method="post">
-<input type="hidden" name="tx_layouteditor_tools_layouteditoradmin[sent]" value="true">
-<ul class="tabs">
-		<li class="tab-link current" data-tab="tab-1">Content Layouts</li>
-		<li class="tab-link" data-tab="tab-2">Frontend Layouts</li>
-	</ul>
+	<section>
+		<form method="post">
+			<input type="hidden" name="tx_layouteditor_tools_layouteditoradmin[sent]" value="true">
+			<ul class="tabs">
+				<li class="tab-link current" data-tab="tab-1"><f:translate key='contentLayouts' /></li>
+				<li class="tab-link" data-tab="tab-2"><f:translate key='frontendLayouts' /></li>
+			</ul>
 
-	<div id="tab-1" class="tab-content current" layoutType="content">
-		
-			
-				
-					
-						<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
-							<fieldset index="{iterator.index}">
-									<legend>
-										<div class="delete"><i class="material-icons">delete</i></div>
-										<f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="Name for your layout" name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][label]" value="{contentLayout.label}"  />
-									</legend>
-									<table width="100%">
-										<tr>
-											<td><label for="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]">Number:</label></td>
-											<td><label for="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]">Class:</label></td>
-										</tr>
-										<tr>
-											<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="Must be unique!" name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]" value="{number}" class="number" /></td>
-											<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="CSS class name" name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" value="{contentLayout.class}" class="form-control" /></td>
-										</tr>
-									</table>
-							</fieldset>
-						</f:for>
-						<div class="add"><i class="material-icons">add_box</i> Add new</div>
-						
+			<div id="tab-1" class="tab-content current" layoutType="content">
 
-					
+
 				
+
+				<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
+				<fieldset index="{iterator.index}">
+					<legend>
+						<div class="delete"><i class="material-icons">delete</i></div>
+						<f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='layoutName' />" name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][label]" value="{contentLayout.label}"  />
+					</legend>
+					<table width="100%">
+						<tr>
+							<td><label for="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]"><f:translate key='number' /></label></td>
+							<td><label for="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]"><f:translate key='class' /></label></td>
+						</tr>
+						<tr>
+							<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='unique' />" name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][number]" value="{number}" class="number" /></td>
+							<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='classPlaceholder' />" name="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" value="{contentLayout.class}" class="form-control" /></td>
+						</tr>
+					</table>
+				</fieldset>
+			</f:for>
+			<div class="add"><i class="material-icons">add_box</i> <f:translate key='add' /></div>
+
 			
 
-	</div>
-	<div id="tab-2" class="tab-content" layoutType="frontend">
-		 <f:for each="{frontendLayouts}" as="frontendLayout" key="number"  iteration="iterator">
-							<fieldset index="{iterator.index}">
-									<legend>
-										<div class="delete"><i class="material-icons">delete</i></div>
-										<f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" placeholder="Name for your layout" required="required" name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][label]" value="{frontendLayout.label}"  />
-									</legend>
-									<table width="100%">
-										<tr>
-											<td><label for="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]">Number:</label></td>
-											<td><label for="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][class]">Class:</label></td>
-										</tr>
-										<tr>
-											<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="Must be unique!" name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]" id="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]" value="{number}" class="number" /></td>
-											<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="CSS class name" name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][class]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" value="{frontendLayout.class}" class="form-control" /></td>
-										</tr>
-									</table>
-							</fieldset>
-						</f:for>
-						<div class="add"><i class="material-icons">add_box</i> Add new</div>
+		</div>
+		<div id="tab-2" class="tab-content" layoutType="frontend">
+			<f:for each="{frontendLayouts}" as="frontendLayout" key="number"  iteration="iterator">
+			<fieldset index="{iterator.index}">
+				<legend>
+					<div class="delete"><i class="material-icons">delete</i></div>
+					<f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" placeholder="<f:translate key='layoutName' />" required="required" name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][label]" value="{frontendLayout.label}"  />
+				</legend>
+				<table width="100%">
+					<tr>
+						<td><label for="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]"><f:translate key='number' /></label></td>
+						<td><label for="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][class]"><f:translate key='class' /></label></td>
+					</tr>
+					<tr>
+						<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='unique' />" name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]" id="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][number]" value="{number}" class="number" /></td>
+						<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='classPlaceholder' />" name="tx_layouteditor_tools_layouteditoradmin[frontendLayouts][{iterator.index}][class]" id="tx_layouteditor_tools_layouteditoradmin[contentLayouts][{iterator.index}][class]" value="{frontendLayout.class}" class="form-control" /></td>
+					</tr>
+				</table>
+			</fieldset>
+		</f:for>
+		<div class="add"><i class="material-icons">add_box</i> <f:translate key='add' /></div>
 	</div>
 
 	<br>
-<input type="submit" value="Save">
+	<input type="submit" value="<f:translate key='save' />">
 
 </form>
 </section>
-				<section style="font-size: 9px;">
-					<a class="info" href="javascript:void(0)"><i class="material-icons">info</i></a>
-					<div>
-						<br><br>
-						<span style="font-size: 9px;">Settings will be usable without any more configuration.<br>
-						<br>
-						If you want to use the settings without this extension, you can use the TsConfig and Typoscript below. You will need to save your settings to see changes.<br>
-						<br>
-						If you want to copy the settings to another installation, copy "uploads/tx_layouteditor".</span>
-						<h3>Typoscript</h3>
-					
-						<f:format.raw>{tsMainFile}</f:format.raw><br>
-						<f:format.raw>{tsFile}</f:format.raw>
-					</div>
-					
-					
-					
-				</section>
-				<section style="font-size: 9px;">
-					
-					<div>
-						<h3>TsConfig</h3>
-						<f:format.raw>{tsConfigFile}</f:format.raw>
-					</div>
+<section style="font-size: 9px;">
+	<a class="info" href="javascript:void(0)"><i class="material-icons">info</i></a>
+	<div>
+		<br><br>
+		<span style="font-size: 9px;"><f:format.html><f:translate key='explain' htmlEscape="false"  /></f:format.html></span>
+			<h3>Typoscript</h3>
 
-					<div>
-						<h3>CSS Snippet</h3>
-						<f:for each="{frontendLayouts}" as="frontendLayout" key="number"  iteration="iterator">
-							body.{frontendLayout.class}{<br>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {frontendLayout.label} */<br>
-							}<br>	
-						</f:for>
-						<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
-							.{contentLayout.class}{<br>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {contentLayout.label} */<br>
-							}<br>	
-						</f:for>
-					</div>
-				</section>
+			<f:format.raw>{tsMainFile}</f:format.raw><br>
+			<f:format.raw>{tsFile}</f:format.raw>
+		</div>
+
+
+
+	</section>
+	<section style="font-size: 9px;">
+
+		<div>
+			<h3>TsConfig</h3>
+			<f:format.raw>{tsConfigFile}</f:format.raw>
+		</div>
+
+		<div>
+			<h3>CSS Snippet</h3>
+			<f:for each="{frontendLayouts}" as="frontendLayout" key="number"  iteration="iterator">
+			body.{frontendLayout.class}{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {frontendLayout.label} */<br>
+		}<br>	
+	</f:for>
+	<f:for each="{contentLayouts}" as="contentLayout" key="number"  iteration="iterator">
+	.{contentLayout.class}{<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* {contentLayout.label} */<br>
+}<br>	
+</f:for>
+</div>
+</section>
 </div>
 
 

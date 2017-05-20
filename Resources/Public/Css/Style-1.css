@@ -1,0 +1,78 @@
+body{
+	background-color: #008AFF;
+}
+html body, html body *{
+	color:white;
+}
+.tab-content{
+	border: none;
+	background-color:white;
+}
+ul.tabs li{
+	border:none;
+}
+legend input[type="text"]{
+	background-color: white;
+	border: none;
+	border-radius: 0;
+	color: #26577F;
+	border-bottom: 1px solid #26577F;
+	font-style: italic;
+}
+body fieldset{
+	background-color: #fff;
+	border:none;
+	border:1px dotted transparent;
+	
+}
+body fieldset label{
+	color:black;
+	font-weight:normal;
+}
+body .add, body .add i{
+	color:#26577F;
+}
+legend .material-icons{
+	background: white;
+	top: 27px;
+	color: #26577F;
+}
+input[type="text"]{
+	color:black;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"]{
+	background-color:#26577F;
+	color:white;
+	border-radius:3px;
+	border:none;
+	padding: 6px 23px;
+}
+html input[type="submit"]:hover{
+	background-color:white;
+	color:#26577F;
+}
+
+body fieldset:hover {
+    box-shadow: none;
+    /*
+    border: 1px dotted #26577F;
+    */
+}
+
+input[type="text"].form-control {
+    width: 100%;
+    height: 32px;
+    padding: 6px;
+    background-color: #fefefe;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-bottom: 1px dotted #26577F;
+    color: #26577F;
+    font-style: italic;
+}
+fieldset input{
+	border:none;
+}

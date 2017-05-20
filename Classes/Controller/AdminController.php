@@ -42,8 +42,6 @@ class AdminController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
 		$args = $this->request->getArguments();
 		$changes = false;
-		
-
 
 
 /* -------------------------------------------------------------------------------------------------------------------- */

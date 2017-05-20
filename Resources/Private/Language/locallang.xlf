@@ -3,8 +3,60 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2017-05-05T23:47:46Z" product-name="layout_editor">
 		<header/>
 		<body>
+			<trans-unit id="headline">
+				<source>Layout Configuration</source>
+			</trans-unit>
+
+
+			
 			<trans-unit id="tx_layouteditor_domain_model_admin">
 				<source>Admin</source>
+			</trans-unit>
+			<trans-unit id="class">
+				<source>Class</source>
+			</trans-unit>
+			<trans-unit id="classPlaceholder">
+				<source>CSS class name</source>
+			</trans-unit>
+			<trans-unit id="number">
+				<source>Number</source>
+			</trans-unit>
+			<trans-unit id="layoutName">
+				<source>Name for your layout</source>
+			</trans-unit>
+			<trans-unit id="unique">
+				<source>Must be unique!</source>
+			</trans-unit>
+			<trans-unit id="delete">
+				<source>Delete this layout?</source>
+			</trans-unit>
+
+			<trans-unit id="add">
+				<source>Add new</source>
+			</trans-unit>
+			<trans-unit id="save">
+				<source>Save</source>
+			</trans-unit>
+
+
+			<trans-unit id="copyright">
+				<source>For bugs and suggestions, please contact</source>
+			</trans-unit>
+			<trans-unit id="contentLayouts">
+				<source>Content Layouts</source>
+			</trans-unit>
+			<trans-unit id="frontendLayouts">
+				<source>Frontend Layouts</source>
+			</trans-unit>
+			<trans-unit id="explain">
+				<source><![CDATA[Settings will be usable without any more configuration.<br /><br />The Typoscript below can be used separately.<br /><br />If you want to copy these settings to another installation, copy "uploads/tx_layouteditor".]]> </source>
+			</trans-unit>
+
+			<trans-unit id="fillOut">
+				<source>Please fill out all fields.</source>
+			</trans-unit>
+			<trans-unit id="somethingWrong">
+				<source>Something is wrong, please check all required fields.</source>
 			</trans-unit>
 		</body>
 	</file>

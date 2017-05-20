@@ -28,18 +28,18 @@ if (typeof jQuery == 'undefined') {
 			<fieldset index="0">
 				<legend>
 					<div class="delete"><i class="material-icons">delete</i></div>
-					<input placeholder="Name for your layout" name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][label]" value="" 
+					<input placeholder="`+lkeyLayoutName+`" name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][label]" value="" 
 					required="required" type="text" oninvalid="invalid()">
 				</legend>
 				<table width="100%">
 					<tbody><tr>
-						<td><label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]">Number:</label></td>
-						<td><label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]">Class:</label></td>
+						<td><label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]">`+lkeyNumber+`</label></td>
+						<td><label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]">`+lkeyClass+`</label></td>
 					</tr>
 					<tr>
-						<td><input oninvalid="invalid()" placeholder="Must be unique!" class="number" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" 
+						<td><input oninvalid="invalid()" placeholder="`+lkeyUnique+`" class="number" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" 
 						name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" value="101" required="required" type="text"></td>
-						<td><input oninvalid="invalid()" placeholder="CSS class name" class="form-control" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" 
+						<td><input oninvalid="invalid()" placeholder="`+lkeyClassPlaceholder+`" class="form-control" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" 
 						name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" value="" required="required" type="text"></td>
 					</tr>
 				</tbody></table>
@@ -77,7 +77,7 @@ if (typeof jQuery == 'undefined') {
 var invalidSet = false;
 function invalid(){
 	if (invalidSet == false){
-		top.TYPO3.Notification.warning('Please fill out all fields.', 'Something is wrong, please check all required fields.');
+		top.TYPO3.Notification.warning(lkeyFillOut, lkeySomethingWrong);
 	}
 	invalidSet = true;
 	setTimeout(function(){ invalidSet = false; }, 5000);

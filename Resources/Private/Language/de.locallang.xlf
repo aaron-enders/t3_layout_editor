@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2017-05-20T23:47:46Z" product-name="layout_editor">
+		<header/>
+		<body>
+
+			<trans-unit id="headline">
+				<target>Layouteinstellungen</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_layouteditor_domain_model_admin">
+				<target>Admin</target>
+			</trans-unit>
+			<trans-unit id="class">
+				<target>Klasse</target>
+			</trans-unit>
+			<trans-unit id="classPlaceholder">
+				<target>CSS-Klasse</target>
+			</trans-unit>
+			<trans-unit id="number">
+				<target>ID</target>
+			</trans-unit>
+			<trans-unit id="layoutName">
+				<target>Name des Layouts</target>
+			</trans-unit>
+			<trans-unit id="unique">
+				<target>Muss eindeutig sein!</target>
+			</trans-unit>
+			<trans-unit id="delete">
+				<target>Dieses Layout löschen?</target>
+			</trans-unit>
+
+			<trans-unit id="add">
+				<target>Neu</target>
+			</trans-unit>
+			<trans-unit id="save">
+				<target>Speichern</target>
+			</trans-unit>
+
+
+
+			<trans-unit id="copyright">
+				<target>Bei Problemen oder Vorschlägen freue ich mich über eine Nachricht unter </target>
+			</trans-unit>
+			<trans-unit id="contentLayouts">
+				<target>Inhaltselemente</target>
+			</trans-unit>
+			<trans-unit id="frontendLayouts">
+				<target>Frontendlayouts</target>
+			</trans-unit>
+			<trans-unit id="explain">
+				<target><![CDATA[Die Einstellungen können ohne weitere Konfiguration benutzt werden.<br /><br /> Das unten stehende Typoscript kann auch separat genutzt werden. Um hier Änderungen sichtbar zu machen, müssen die Einstellungen zuerst gespeichert werden. <br /><br />Für einen Umzug ist zu beachten, dass "uploads/tx_layouteditor" mitkopiert wird.]]> </target>
+			</trans-unit>
+
+			<trans-unit id="fillOut">
+				<target>Bitte alle Felder ausfüllen.</target>
+			</trans-unit>
+			<trans-unit id="somethingWrong">
+				<target>Hier stimmt was nicht, vielleicht sind nicht alle erforderlichen Felder ausgefüllt.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
