@@ -77,3 +77,9 @@ input[type="text"].form-control {
 fieldset input{
 	border:none;
 }
+ul.tabs li:first-of-type{
+	border-radius:5px 0 0 0;
+}
+ul.tabs li:last-of-type{
+	border-radius:0 5px 0 0;
+}
