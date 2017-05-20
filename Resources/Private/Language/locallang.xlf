@@ -58,6 +58,10 @@
 			<trans-unit id="somethingWrong">
 				<source>Something is wrong, please check all required fields.</source>
 			</trans-unit>
+
+			<trans-unit id="saved">
+				<source>Configuration saved.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

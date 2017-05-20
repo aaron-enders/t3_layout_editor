@@ -59,6 +59,10 @@
 			<trans-unit id="somethingWrong">
 				<target>Hier stimmt was nicht, vielleicht sind nicht alle erforderlichen Felder ausgefüllt.</target>
 			</trans-unit>
+
+			<trans-unit id="saved">
+				<target>Gespeichert!</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

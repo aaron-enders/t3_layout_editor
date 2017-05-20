@@ -86,7 +86,7 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 			if ($changes){
 				
 				$this->addFlashMessage(
-				    'Configuration saved.',
+				    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate("saved", "layout_editor", array()),
 				    '',
 				    \TYPO3\CMS\Core\Messaging\FlashMessage::OK
 				);	
