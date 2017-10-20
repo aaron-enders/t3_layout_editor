@@ -3,12 +3,13 @@ body{
 	background-color: #fff;
 	margin:20px;
 }
-html body, html body *{
+html body, html body *{ 
 	color:rgb(117, 117, 117);
 }
 body#typo3-index-php{
 	margin:20px;
 	background-color: #f1f1f1;
+	background-color: #fff;
 }
 .copyrightInfo{
 	float:right;

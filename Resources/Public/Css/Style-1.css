@@ -1,9 +1,10 @@
 body,
 body#typo3-index-php{
-	background-color: #008AFF;
+	/*background-color: #008AFF;*/
+	background-color: #e0e0e0;
 }
 html body, html body *{
-	color:white;
+	/*color:white;*/
 }
 .tab-content{
 	border: none;
