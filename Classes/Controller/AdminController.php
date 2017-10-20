@@ -64,9 +64,7 @@ TCEFORM.tt_content.layout.addItems.'.$contentLayout['number'].' = '.$contentLayo
 tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'.value = <div class="'.$contentLayout['class'].'">|</div>
 ';
 
-// RTE.default.proc.allowedClasses := addToList(btnSolid) 
-// RTE.default.buttons.link.properties.class.allowedClasses := addToList(btnSolid) 
-// RTE.classesAnchor.btnSolid.name = btnSolid
+
 					fwrite($tsConfigFile, $tsConfig)  or die('fwrite failed');
 					fwrite($tsFile, $ts)  or die('fwrite failed');
 				}
@@ -89,6 +87,27 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 				}
 				$changes = true;
 			}
+
+			$ts = "";
+			$tsConfig = "";
+			if ($linkLayouts = $args['linkLayouts']){
+				foreach ($linkLayouts as $index => $linkLayout){
+					$tsConfig = '#_link_'.$linkLayout['class'].'
+RTE.default.proc.allowedClasses := addToList('.$linkLayout['class'].')'.'
+RTE.default.buttons.link.properties.class.allowedClasses := addToList('.$linkLayout['class'].') 
+RTE.classesAnchor.'.$linkLayout['class'].'.name = '.$linkLayout['class'].'
+';
+					$ts = 'page.bodyTagCObject.'.$linkLayout['number'].' = TEXT
+page.bodyTagCObject.'.$linkLayout['number'].'.wrap = <body class="|">
+page.bodyTagCObject.'.$linkLayout['number'].'.value = '.$linkLayout['class'].'
+';
+					fwrite($tsConfigFile, $tsConfig)  or die('fwrite failed');
+					fwrite($tsFile, $ts)  or die('fwrite failed');
+				}
+				$changes = true;
+			}
+
+
 			if ($changes){
 				
 				$this->addFlashMessage(
@@ -138,16 +157,12 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 						die();
 					}
 				}
-				
 				if (!copy($tempConfigPathOriginal.'/TypoScript/temp.txt', $tempConfigPath .'/TypoScript/temp.txt')){
-
 			    	echo "Copy failed. <br>";
 			    	echo "Source: ".$tempConfigPathOriginal.'/TypoScript/temp.txt';
 			    	echo "<br>Target: ".$tempConfigPath .'/TypoScript/temp.txt';
 			    	die();
-
 			    }
-			    
 			}
 		    //exit("Konnte Stream von URL nicht öffnen");
 		    $tsConfigHandle = fopen($tsConfigFile, "r");
@@ -162,6 +177,9 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 					if (substr( $line, 0, 11 ) == "#_frontend_"){
 						$line = str_replace('#_frontend_', '#', $line);
 						$type = "frontend";
+					}else if (substr( $line, 0, 7 ) == "#_link_"){
+						$line = str_replace('#_link_', '#', $line);
+						$type = "link";
 					}else{
 						$type = "content";
 					}
@@ -175,6 +193,9 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 					if ($type == "frontend"){
 						$frontendLayouts[$number]["class"] = $class;
 						$frontendLayouts[$number]["label"] = $label;
+					}else if ($type == "link"){
+						$linkClasses[$number]["class"] = $class;
+						$linkClasses[$number]["label"] = $label;
 					}else{
 						$contentLayouts[$number]["class"] = $class;
 						$contentLayouts[$number]["label"] = $label;
@@ -193,6 +214,7 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 		$this->view->assign('tsMainFile', nl2br(htmlentities(file_get_contents($tsMainFile, true))));
 		$this->view->assign('contentLayouts', $contentLayouts);
 		$this->view->assign('frontendLayouts', $frontendLayouts);
+		$this->view->assign('linkClasses', $linkClasses);
 	}
 
 }
