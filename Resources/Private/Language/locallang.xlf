@@ -49,7 +49,7 @@
 				<source>Frontend Layouts</source>
 			</trans-unit>
 			<trans-unit id="explain">
-				<source><![CDATA[Settings will be usable without any more configuration.<br /><br />The Typoscript below can be used separately.<br /><br />If you want to copy these settings to another installation, copy "uploads/tx_layouteditor".]]> </source>
+				<source><![CDATA[Settings will be usable without any more configuration.<br /><br />The Typoscript below can be used separately.<br /><br />If you want to copy these settings to another installation, copy "fileadmin/ts/layoutEditor".]]> </source>
 			</trans-unit>
 
 			<trans-unit id="fillOut">

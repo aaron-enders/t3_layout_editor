@@ -50,7 +50,7 @@
 				<target>Frontendlayouts</target>
 			</trans-unit>
 			<trans-unit id="explain">
-				<target><![CDATA[Die Einstellungen können ohne weitere Konfiguration benutzt werden.<br /><br /> Das unten stehende Typoscript kann auch separat genutzt werden. Um hier Änderungen sichtbar zu machen, müssen die Einstellungen zuerst gespeichert werden. <br /><br />Für einen Umzug ist zu beachten, dass "uploads/tx_layouteditor" mitkopiert wird.]]> </target>
+				<target><![CDATA[Die Einstellungen können ohne weitere Konfiguration benutzt werden.<br /><br /> Das unten stehende Typoscript kann auch separat genutzt werden. Um hier Änderungen sichtbar zu machen, müssen die Einstellungen zuerst gespeichert werden. <br /><br />Für einen Umzug ist zu beachten, dass "fileadmin/ts/layoutEditor" mitkopiert wird.]]> </target>
 			</trans-unit>
 
 			<trans-unit id="fillOut">
