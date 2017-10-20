@@ -63,6 +63,10 @@ TCEFORM.tt_content.layout.addItems.'.$contentLayout['number'].' = '.$contentLayo
 				$ts = 'tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'=TEXT
 tt_content.stdWrap.innerWrap.cObject.'.$contentLayout['number'].'.value = <div class="'.$contentLayout['class'].'">|</div>
 ';
+
+// RTE.default.proc.allowedClasses := addToList(btnSolid) 
+// RTE.default.buttons.link.properties.class.allowedClasses := addToList(btnSolid) 
+// RTE.classesAnchor.btnSolid.name = btnSolid
 					fwrite($tsConfigFile, $tsConfig)  or die('fwrite failed');
 					fwrite($tsFile, $ts)  or die('fwrite failed');
 				}
