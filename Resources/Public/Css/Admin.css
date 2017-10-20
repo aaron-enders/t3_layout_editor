@@ -121,3 +121,6 @@ ul.tabs li.current{
 .alert *{
 	color:white;
 }
+input[type="text"]:hover{
+	outline:1px dotted grey;
+}
