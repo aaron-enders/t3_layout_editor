@@ -21,10 +21,10 @@ $EM_CONF[$_EXTKEY] = array(
 	'uploadfolder' => '1',
 	'createDirs' => 'fileadmin/ts/layoutEditor/PageTS,fileadmin/ts/layoutEditor/TypoScript',
 	'clearCacheOnLoad' => 1,
-	'version' => '1.0.1',
+	'version' => '1.1.0',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '6.2.0-8.7.7',
+			'typo3' => '6.2.0-8.7.8',
 		),
 		'conflicts' => array(
 		),
