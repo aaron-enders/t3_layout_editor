@@ -92,17 +92,13 @@ page.bodyTagCObject.'.$frontendLayout['number'].'.value = '.$frontendLayout['cla
 			$tsConfig = "";
 			if ($linkLayouts = $args['linkLayouts']){
 				foreach ($linkLayouts as $index => $linkLayout){
-					$tsConfig = '#_link_'.$linkLayout['class'].'
+					$tsConfig = '#_link_'.$linkLayout['label'].'
 RTE.default.proc.allowedClasses := addToList('.$linkLayout['class'].')'.'
 RTE.default.buttons.link.properties.class.allowedClasses := addToList('.$linkLayout['class'].') 
 RTE.classesAnchor.'.$linkLayout['class'].'.name = '.$linkLayout['class'].'
 ';
-					$ts = 'page.bodyTagCObject.'.$linkLayout['number'].' = TEXT
-page.bodyTagCObject.'.$linkLayout['number'].'.wrap = <body class="|">
-page.bodyTagCObject.'.$linkLayout['number'].'.value = '.$linkLayout['class'].'
-';
+					
 					fwrite($tsConfigFile, $tsConfig)  or die('fwrite failed');
-					fwrite($tsFile, $ts)  or die('fwrite failed');
 				}
 				$changes = true;
 			}
@@ -169,6 +165,7 @@ page.bodyTagCObject.'.$linkLayout['number'].'.value = '.$linkLayout['class'].'
 		}
 		$tsConfig = '';
 		//Read tsConfig:
+		$linkIterator = 0;
 		while (!feof($tsConfigHandle)) {
 		  $line = fgets($tsConfigHandle);
 		  if (trim($line) != ""){
@@ -194,8 +191,13 @@ page.bodyTagCObject.'.$linkLayout['number'].'.value = '.$linkLayout['class'].'
 						$frontendLayouts[$number]["class"] = $class;
 						$frontendLayouts[$number]["label"] = $label;
 					}else if ($type == "link"){
-						$linkClasses[$number]["class"] = $class;
-						$linkClasses[$number]["label"] = $label;
+						$label = trim(preg_replace('/\s\s+/', ' ', $split[1]));
+						$class = explode(")",trim(explode(":= addToList(",fgets($tsConfigHandle))[1]))[0];
+						fgets($tsConfigHandle); #Skip next line
+						fgets($tsConfigHandle); #Skip next line
+						$linkLayouts[$linkIterator]["class"] = $class;
+						$linkLayouts[$linkIterator]["label"] = $label;
+						$linkIterator++;
 					}else{
 						$contentLayouts[$number]["class"] = $class;
 						$contentLayouts[$number]["label"] = $label;
@@ -214,7 +216,7 @@ page.bodyTagCObject.'.$linkLayout['number'].'.value = '.$linkLayout['class'].'
 		$this->view->assign('tsMainFile', nl2br(htmlentities(file_get_contents($tsMainFile, true))));
 		$this->view->assign('contentLayouts', $contentLayouts);
 		$this->view->assign('frontendLayouts', $frontendLayouts);
-		$this->view->assign('linkClasses', $linkClasses);
+		$this->view->assign('linkLayouts', $linkLayouts);
 	}
 
 }

@@ -42,7 +42,7 @@ var lkeySomethingWrong = "<f:translate key='somethingWrong' />";
 			<ul class="tabs">
 				<li class="tab-link current" data-tab="tab-1"><f:translate key='contentLayouts' /></li>
 				<li class="tab-link" data-tab="tab-2"><f:translate key='frontendLayouts' /></li>
-				<!--<li class="tab-link" data-tab="tab-3"><f:translate key='linkClasses' /></li>-->
+				<li class="tab-link" data-tab="tab-3"><f:translate key='linkLayouts' /></li>
 			</ul>
 
 			<div id="tab-1" class="tab-content current" layoutType="content">
@@ -94,21 +94,22 @@ var lkeySomethingWrong = "<f:translate key='somethingWrong' />";
 		</f:for>
 		<div class="add"><i class="material-icons">add_box</i> <f:translate key='add' /></div>
 	</div>
+	<f:debug>{_all}</f:debug>
 	<div id="tab-3" class="tab-content" layoutType="link">
-			<f:for each="{linkClasses}" as="linkClass" key="number"  iteration="iterator">
+			<f:for each="{linkLayouts}" as="linkClass" key="number"  iteration="iterator">
 				<fieldset index="{iterator.index}">
 					<legend>
 						<div class="delete"><i class="material-icons">delete</i></div>
-						<f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='layoutName' />" name="tx_layouteditor_tools_layouteditoradmin[linkClasses][{iterator.index}][label]" value="{linkClass.label}"  />
+						<f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='layoutName' />" name="tx_layouteditor_tools_layouteditoradmin[linkLayouts][{iterator.index}][label]" value="{linkClass.label}"  />
 					</legend>
 					<table width="100%">
 						<tr>
-							<td><label for="tx_layouteditor_tools_layouteditoradmin[linkClasses][{iterator.index}][number]"><f:translate key='number' /></label></td>
-							<td><label for="tx_layouteditor_tools_layouteditoradmin[linkClasses][{iterator.index}][class]"><f:translate key='class' /></label></td>
+							<td></td>
+							<td><label for="tx_layouteditor_tools_layouteditoradmin[linkLayouts][{iterator.index}][class]"><f:translate key='class' /></label></td>
 						</tr>
 						<tr>
-							<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='unique' />" name="tx_layouteditor_tools_layouteditoradmin[linkClasses][{iterator.index}][number]" id="tx_layouteditor_tools_layouteditoradmin[linkClasses][{iterator.index}][number]" value="{number}" class="number" /></td>
-							<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='classPlaceholder' />" name="tx_layouteditor_tools_layouteditoradmin[linkClasses][{iterator.index}][class]" id="tx_layouteditor_tools_layouteditoradmin[linkClasses][{iterator.index}][class]" value="{linkClass.class}" class="form-control" /></td>
+							<td></td>
+							<td><f:form.textfield additionalAttributes="{oninvalid: 'invalid()'}" required="required" placeholder="<f:translate key='classPlaceholder' />" name="tx_layouteditor_tools_layouteditoradmin[linkLayouts][{iterator.index}][class]" id="tx_layouteditor_tools_layouteditoradmin[linkLayouts][{iterator.index}][class]" value="{linkClass.class}" class="form-control" /></td>
 						</tr>
 					</table>
 				</fieldset>

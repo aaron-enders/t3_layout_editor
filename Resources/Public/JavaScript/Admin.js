@@ -33,14 +33,27 @@ if (typeof jQuery == 'undefined') {
 				</legend>
 				<table width="100%">
 					<tbody><tr>
-						<td><label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]">`+lkeyNumber+`</label></td>
-						<td><label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]">`+lkeyClass+`</label></td>
+						<td>
+							`+((layoutType != "link") ? 
+								`<label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]">`+lkeyNumber+`</label>`
+							 : '')+`
+						</td>
+						<td>
+							<label for="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]">`+lkeyClass+`</label>
+						</td>
 					</tr>
 					<tr>
-						<td><input oninvalid="invalid()" placeholder="`+lkeyUnique+`" class="number" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" 
-						name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" value="101" required="required" type="text"></td>
-						<td><input oninvalid="invalid()" placeholder="`+lkeyClassPlaceholder+`" class="form-control" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" 
-						name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" value="" required="required" type="text"></td>
+						<td>
+							`+((layoutType != "link") ? 
+								`<input oninvalid="invalid()" placeholder="`+lkeyUnique+`" class="number" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" 
+						name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][number]" value="101" required="required" type="text">`
+							 : '')+`
+							
+						</td>
+						<td>
+							<input oninvalid="invalid()" placeholder="`+lkeyClassPlaceholder+`" class="form-control" id="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" 
+						name="tx_layouteditor_tools_layouteditoradmin[`+layoutType+`Layouts][0][class]" value="" required="required" type="text">
+						</td>
 					</tr>
 				</tbody></table>
 			</fieldset>`);
@@ -51,7 +64,7 @@ if (typeof jQuery == 'undefined') {
 	})
 	$(document).on("click", ".layoutEditor .delete",function() {
 		var count = $(this).closest(".tab-content").find("input[id*='tx_layouteditor_tools_layouteditoradmin[']").length;
-		if(count > 1){
+		if(count > 0){
 			if (confirm("Are you sure?") == true) {
 				var ele = $('.layoutEditor fieldset:last-of-type').clone(true);
 				$(this).closest("fieldset").remove();

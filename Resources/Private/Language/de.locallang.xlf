@@ -49,7 +49,7 @@
 			<trans-unit id="frontendLayouts">
 				<target>Frontendlayouts</target>
 			</trans-unit>
-			<trans-unit id="linkClasses">
+			<trans-unit id="linkLayouts">
 				<target>Linkklassen</target>
 			</trans-unit>
 			<trans-unit id="explain">
