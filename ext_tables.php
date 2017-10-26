@@ -29,7 +29,7 @@ if (TYPO3_MODE === 'BE') {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Layout Editor');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_layouteditor_domain_model_admin', 'EXT:layout_editor/Resources/Private/Language/locallang_csh_tx_layouteditor_domain_model_admin.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_layouteditor_domain_model_admin');
+// \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_layouteditor_domain_model_admin');
 
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( '<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/ts/layoutEditor/PageTS/temp.txt">' );
