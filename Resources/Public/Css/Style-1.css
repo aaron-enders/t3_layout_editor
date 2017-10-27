@@ -38,10 +38,16 @@ body fieldset label{
 body .add, body .add i{
 	color:#26577F;
 }
+body .add:hover, body .add:hover i{
+	color:#008aff;
+}
 legend .material-icons{
 	background: white;
 	top: 27px;
 	color: #26577F;
+}
+legend .material-icons:hover{
+	color: #008aff;
 }
 input[type="text"]{
 	color:black;
@@ -54,8 +60,8 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	padding: 6px 23px;
 }
 html input[type="submit"]:hover{
-	background-color:white;
-	color:#26577F;
+	background-color:#008aff;
+	color:white;
 }
 
 body fieldset:hover {
