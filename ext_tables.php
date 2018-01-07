@@ -26,7 +26,7 @@ if (TYPO3_MODE === 'BE') {
 
 }
 
-$sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_content WHERE deleted='0' AND hidden='0'";
+$sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_content WHERE deleted='0' AND hidden='0' ORDER BY sorting ASC";
 $rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
 while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){ 
 	$id = '9871'.$out['sorting'];
@@ -35,7 +35,7 @@ while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){
 		tt_content.stdWrap.innerWrap.cObject.'.$id.'=TEXT
 		tt_content.stdWrap.innerWrap.cObject.'.$id.'.value = <div class="'.$out['class'].'">|</div>');
 }
-$sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_frontend WHERE deleted='0' AND hidden='0'";
+$sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_frontend WHERE deleted='0' AND hidden='0' ORDER BY sorting ASC";
 $rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
 while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){ 
 	$id = '9872'.$out['sorting'];
