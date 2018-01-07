@@ -29,19 +29,21 @@ if (TYPO3_MODE === 'BE') {
 $sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_content WHERE deleted='0' AND hidden='0'";
 $rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
 while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){ 
-	$id = '100'.$out['sorting'];
+	$id = '9871'.$out['sorting'];
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( 'TCEFORM.tt_content.layout.addItems.'.$id.' = '.$out['name'] );
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript($_EXTKEY,'setup','tt_content.stdWrap.innerWrap.cObject.'.$id.'=TEXT
-	tt_content.stdWrap.innerWrap.cObject.'.$id.'.value = <div class="'.$out['class'].'">|</div>',43);
-
-	//  \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript($_EXTKEY,'setup','
-	//  	tt_content.stdWrap.innerWrap.cObject.10'.$out['uid'].' = TEXT
-	//  	tt_content.stdWrap.innerWrap.cObject.10'.$out['uid'].'.value = <div class="'.$out['class'].'">|</div>
-	//  	');
-	//  echo '
-	//  	tt_content.stdWrap.innerWrap.cObject.'.$id.'=TEXT
-	// tt_content.stdWrap.innerWrap.cObject.'.$id.'.value = <div class="'.$out['class'].'">|</div>
-	//  	';
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript($_EXTKEY,'setup','
+		tt_content.stdWrap.innerWrap.cObject.'.$id.'=TEXT
+		tt_content.stdWrap.innerWrap.cObject.'.$id.'.value = <div class="'.$out['class'].'">|</div>');
+}
+$sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_frontend WHERE deleted='0' AND hidden='0'";
+$rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
+while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){ 
+	$id = '9872'.$out['sorting'];
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( 'TCEFORM.pages.layout.addItems.'.$id.' = '.$out['name'] );
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript($_EXTKEY,'setup','
+		page.bodyTagCObject.'.$id.' = TEXT
+		page.bodyTagCObject.'.$id.'.wrap = <body class="|">
+		page.bodyTagCObject.'.$id.'.value = '.$out['class']);
 }
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Layout Editor');
 

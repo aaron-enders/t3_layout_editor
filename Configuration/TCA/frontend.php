@@ -2,9 +2,9 @@
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
-$GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_content'] = array(
+$GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_frontend'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:layout_editor/Resources/Private/Language/locallang.xlf:contentLayouts',
+		'title'	=> 'LLL:EXT:layout_editor/Resources/Private/Language/locallang.xlf:frontendLayouts',
 		'label' => 'name',
 		'label_alt' => 'variant',
         'label_alt_force' => 1,
