@@ -66,6 +66,10 @@
 			<trans-unit id="saved">
 				<target>Gespeichert!</target>
 			</trans-unit>
+
+			<trans-unit id="usedInElements">
+				<target>In Elementen genutzt</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

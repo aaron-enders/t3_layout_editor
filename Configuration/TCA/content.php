@@ -22,7 +22,7 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_content'] = array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("layout_editor") . 'ext_icon.png'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'name, class',
+		'showRecordFieldList' => 'name, class, references',
 	),
 	'types' => array(
 		'1' => array('showitem' => 'name, class'),
@@ -51,6 +51,18 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_content'] = array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
+			),
+		),
+		'references' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:layout_editor/Resources/Private/Language/locallang.xlf:usedInElements',
+			'config' => array(
+				'type' => 'select',
+				'size' => 5,
+				'readOnly' => 1,
+				'foreign_table' => 'tt_content',
+				'foreign_field' => 'layout',
+                'foreign_table_where' => ' AND tt_content.layout = ###REC_FIELD_uid### '
 			),
 		),
 	),

@@ -65,6 +65,10 @@
 			<trans-unit id="saved">
 				<source>Configuration saved.</source>
 			</trans-unit>
+
+			<trans-unit id="usedInElements">
+				<source>Used in elements</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

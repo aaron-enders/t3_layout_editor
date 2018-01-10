@@ -13,7 +13,7 @@ CREATE TABLE tx_layouteditor_domain_model_layouts_content (
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid)
-);
+)AUTO_INCREMENT = 9871;
 
 CREATE TABLE tx_layouteditor_domain_model_layouts_frontend (
 	uid int(11) NOT NULL auto_increment,
@@ -30,7 +30,7 @@ CREATE TABLE tx_layouteditor_domain_model_layouts_frontend (
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid)
-);
+)AUTO_INCREMENT = 9871;
 
 CREATE TABLE tx_layouteditor_domain_model_layouts_links (
 	uid int(11) NOT NULL auto_increment,
@@ -47,4 +47,4 @@ CREATE TABLE tx_layouteditor_domain_model_layouts_links (
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid)
-);
+)AUTO_INCREMENT = 9871;

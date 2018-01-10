@@ -29,7 +29,7 @@ if (TYPO3_MODE === 'BE') {
 $sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_content WHERE deleted='0' AND hidden='0' ORDER BY sorting ASC";
 $rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
 while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){ 
-	$id = '9871'.$out['sorting'];
+	$id = $out['uid'];
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( 'TCEFORM.tt_content.layout.addItems.'.$id.' = '.$out['name'] );
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript($_EXTKEY,'setup','
 		tt_content.stdWrap.innerWrap.cObject.'.$id.'=TEXT
@@ -38,7 +38,7 @@ while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){
 $sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_frontend WHERE deleted='0' AND hidden='0' ORDER BY sorting ASC";
 $rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
 while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){ 
-	$id = '9872'.$out['sorting'];
+	$id = $out['uid'];
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( 'TCEFORM.pages.layout.addItems.'.$id.' = '.$out['name'] );
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript($_EXTKEY,'setup','
 		page.bodyTagCObject.'.$id.' = TEXT
