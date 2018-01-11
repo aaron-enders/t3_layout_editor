@@ -25,7 +25,7 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_frontend'] = array(
 		'showRecordFieldList' => 'name, class',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name, class'),
+		'1' => array('showitem' => 'name, class, references'),
 	),
 	'columns' => array(
 		'hidden' => array(
@@ -53,6 +53,28 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_frontend'] = array(
 				'eval' => 'trim'
 			),
 		),
+		'references' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:layout_editor/Resources/Private/Language/locallang.xlf:usedInElements',
+			'config' => array(
+				'type' => 'inline',
+				'readOnly' => 1,
+				'foreign_table' => 'pages',
+				'foreign_field' => 'layout',
+				'appearance' => [
+			        'enabledControls' => [
+			            'info' => TRUE,
+			            'new' => FALSE,
+			            'dragdrop' => FALSE,
+			            'sort' => FALSE,
+			            'hide' => FALSE,
+			            'delete' => FALSE,
+			            'localize' => FALSE,
+			        ],
+			    ],
+			),
+		),
+	
 	),
 );
 

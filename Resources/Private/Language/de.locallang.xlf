@@ -44,10 +44,10 @@
 				<target>Bei Problemen oder Vorschlägen freue ich mich über eine Nachricht unter </target>
 			</trans-unit>
 			<trans-unit id="contentLayouts">
-				<target>Inhaltselemente</target>
+				<target>Inhaltsklassen</target>
 			</trans-unit>
 			<trans-unit id="frontendLayouts">
-				<target>Frontendlayouts</target>
+				<target>Frontendklassen</target>
 			</trans-unit>
 			<trans-unit id="linkLayouts">
 				<target>Linkklassen</target>

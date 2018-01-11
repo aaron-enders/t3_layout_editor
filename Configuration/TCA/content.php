@@ -22,10 +22,10 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_content'] = array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("layout_editor") . 'ext_icon.png'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'name, class, references',
+		'showRecordFieldList' => 'name, class',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name, class'),
+		'1' => array('showitem' => 'name, class, references'),
 	),
 	'columns' => array(
 		'hidden' => array(
@@ -57,12 +57,21 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_content'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:layout_editor/Resources/Private/Language/locallang.xlf:usedInElements',
 			'config' => array(
-				'type' => 'select',
-				'size' => 5,
+				'type' => 'inline',
 				'readOnly' => 1,
 				'foreign_table' => 'tt_content',
 				'foreign_field' => 'layout',
-                'foreign_table_where' => ' AND tt_content.layout = ###REC_FIELD_uid### '
+				'appearance' => [
+			        'enabledControls' => [
+			            'info' => TRUE,
+			            'new' => FALSE,
+			            'dragdrop' => TRUE,
+			            'sort' => FALSE,
+			            'hide' => TRUE,
+			            'delete' => FALSE,
+			            'localize' => FALSE,
+			        ],
+			    ],
 			),
 		),
 	),

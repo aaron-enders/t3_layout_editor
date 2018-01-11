@@ -43,13 +43,13 @@
 				<source>For bugs and suggestions, please contact</source>
 			</trans-unit>
 			<trans-unit id="contentLayouts">
-				<source>Content Layouts</source>
+				<source>Content classes</source>
 			</trans-unit>
 			<trans-unit id="frontendLayouts">
-				<source>Frontend Layouts</source>
+				<source>Frontend classes</source>
 			</trans-unit>
 			<trans-unit id="linkLayouts">
-				<source>Link Classes</source>
+				<source>Link classes</source>
 			</trans-unit>
 			<trans-unit id="explain">
 				<source><![CDATA[Settings will be usable without any more configuration.<br /><br />The Typoscript below can be used separately.<br /><br />If you want to copy these settings to another installation, copy "fileadmin/ts/layoutEditor".]]> </source>
