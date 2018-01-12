@@ -3,7 +3,7 @@
 
 Automaticly generates and integrates the necessary Typoscript and TS-Config.
 ```
-Just install and open the "Layout Editor" Module.
+Just install and and add layout classes in the root page. Backend module will be removed in future releases.
 ```
 ![Alt text](Documentation/Images/screenshot.jpg?raw=true "Screenshot")
 ```

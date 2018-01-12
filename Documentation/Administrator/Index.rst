@@ -24,12 +24,5 @@ To install the extension, perform the following steps:
 #. Go to the Extension Manager
 #. Install layout_editor
 #. Load the static template
-#. Go to "Layouts"-module
-
-.. _admin-configuration:
-
-Configuration
--------------
-
-* Add or edit layout names classes or numbers and save.
-* Edit content element and edit layout in appearance-tab.
+#. Go to root page and add new record (Backend-module will be removed in future releases!)
+#. Select class in "layouts"-section of content elements
