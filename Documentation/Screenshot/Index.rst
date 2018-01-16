@@ -11,5 +11,5 @@
 Screenshot
 ====================
 
-.. figure:: ../Images/screenshot.jpg
+.. figure:: ../Images/screenshot.png
    :alt: Layout Editor

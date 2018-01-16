@@ -22,7 +22,7 @@
 				<source>Number</source>
 			</trans-unit>
 			<trans-unit id="layoutName">
-				<source>Name for your layout</source>
+				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="unique">
 				<source>Must be unique!</source>
