@@ -1,0 +1,2 @@
+# cat=enable/26; type=boolean; label=LLL:EXT:layout_editor/Resources/Private/Language/locallang.xlf:showModule
+showModule = 1

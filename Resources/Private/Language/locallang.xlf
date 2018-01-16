@@ -69,6 +69,10 @@
 			<trans-unit id="usedInElements">
 				<source>Used in elements</source>
 			</trans-unit>
+
+			<trans-unit id="showModule">
+				<source>Show legacy backend module (Backend reload necessary)</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

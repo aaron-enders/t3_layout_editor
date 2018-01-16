@@ -70,6 +70,10 @@
 			<trans-unit id="usedInElements">
 				<target>In Elementen genutzt</target>
 			</trans-unit>
+
+			<trans-unit id="showModule">
+				<target>Veraltetes Backendmodul anzeigen (Backend muss neu geladen werden)</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
