@@ -29,7 +29,7 @@ Layout Editor
 		 layout,typoscript,tsconfig,template,classes,css,editing
 
 	:Copyright:
-		2017
+		2018
 
 	:Author:
 		Aaron Enders

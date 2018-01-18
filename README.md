@@ -3,7 +3,7 @@
 
 Automaticly generates and integrates the necessary Typoscript and TS-Config.
 ```
-Just install and and add layout classes in the root page. Backend module will be removed in future releases.
+Just install and and add layout classes in the root page. (Backend-module has been removed, you can reactivate it in extension configuration, but it will not be supported in future releases.)
 ```
 ![Alt text](Documentation/Images/screenshot.png?raw=true "Screenshot")
 ```
