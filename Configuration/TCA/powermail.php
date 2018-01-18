@@ -80,7 +80,7 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_powermail'] = array(
 			            'new' => FALSE,
 			            'dragdrop' => TRUE,
 			            'sort' => FALSE,
-			            'hide' => TRUE,
+			            'hide' => FALSE,
 			            'delete' => FALSE,
 			            'localize' => FALSE,
 			        ],
