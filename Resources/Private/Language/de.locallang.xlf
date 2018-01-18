@@ -52,6 +52,9 @@
 			<trans-unit id="linkLayouts">
 				<target>Linkklassen</target>
 			</trans-unit>
+			<trans-unit id="powermailLayouts">
+				<target>Powermailklassen</target>
+			</trans-unit>
 			<trans-unit id="explain">
 				<target><![CDATA[Die Einstellungen können ohne weitere Konfiguration benutzt werden.<br /><br /> Das unten stehende Typoscript kann auch separat genutzt werden. Um hier Änderungen sichtbar zu machen, müssen die Einstellungen zuerst gespeichert werden. <br /><br />Für einen Umzug ist zu beachten, dass "fileadmin/ts/layoutEditor" mitkopiert wird.]]> </target>
 			</trans-unit>
