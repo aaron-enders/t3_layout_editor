@@ -6,7 +6,6 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_links'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:layout_editor/Resources/Private/Language/locallang.xlf:linkLayouts',
 		'label' => 'name',
-		'label_alt' => 'variant',
         'label_alt_force' => 1,
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
