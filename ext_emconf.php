@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Layout Editor',
-	'description' => 'Configure content elements and frontend layouts without Typoscript. Simply add a layout and your configured class will be ready for use with css.',
+	'description' => 'Configure content elements and frontend layouts without Typoscript. Simply add a layout in root page and your configured class will be ready for use with css.',
 	'category' => 'module',
 	'author' => 'Aaron Enders',
 	'author_email' => 'mail@aaron-enders.de',
@@ -21,7 +21,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'uploadfolder' => '1',
 	'createDirs' => 'fileadmin/ts/layoutEditor/PageTS,fileadmin/ts/layoutEditor/TypoScript',
 	'clearCacheOnLoad' => 1,
-	'version' => '1.3.2',
+	'version' => '1.3.3',
 	'constraints' => array(
 		'depends' => array(
 			'typo3' => '6.2.0-8.7.9',
