@@ -59,9 +59,7 @@ if (typeof jQuery == 'undefined') {
 			</fieldset>`);
 
 		}
-		
-
-	})
+	});
 	$(document).on("click", ".layoutEditor .delete",function() {
 		var count = $(this).closest(".tab-content").find("input[id*='tx_layouteditor_tools_layouteditoradmin[']").length;
 		if(count > 0){
@@ -73,7 +71,7 @@ if (typeof jQuery == 'undefined') {
 			    return false;
 			  }
 		}
-	})
+	});
 	$(document).on("click", "ul.tabs li",function() {
 		var tab_id = $(this).attr('data-tab');
 
@@ -82,10 +80,10 @@ if (typeof jQuery == 'undefined') {
 
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
-	})
+	});
 	$(document).on("click", "section .info",function() {
 		$("section > div").slideToggle(200);
-	})
+	});
 } ) ( t3jQuery );
 var invalidSet = false;
 function invalid(){
