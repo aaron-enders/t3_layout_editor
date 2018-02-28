@@ -24,7 +24,7 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_powermail'] = array(
 		'showRecordFieldList' => 'name, class, type',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'type, name, class, references'),
+		'1' => array('showitem' => 'type, name, class, refs'),
 	),
 	'columns' => array(
 		'hidden' => array(
@@ -66,7 +66,7 @@ $GLOBALS['TCA']['tx_layouteditor_domain_model_layouts_powermail'] = array(
                 'maxitems' => 1,
 	        )
 		),
-		'references' => array(
+		'refs' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:layout_editor/Resources/Private/Language/locallang.xlf:usedInElements',
 			'config' => array(

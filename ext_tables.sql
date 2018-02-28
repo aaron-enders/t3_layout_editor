@@ -4,7 +4,7 @@ CREATE TABLE tx_layouteditor_domain_model_layouts_content (
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	class TEXT NOT NULL DEFAULT '',
-	`references` int(11) DEFAULT '0' NOT NULL,
+	refs int(11) DEFAULT '0' NOT NULL,
 	
 	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE tx_layouteditor_domain_model_layouts_content (
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	class TEXT NOT NULL DEFAULT '',
-	`references` int(11) DEFAULT '0' NOT NULL,
+	refs int(11) DEFAULT '0' NOT NULL,
 	
 	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE tx_layouteditor_domain_model_layouts_frontend (
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	class TEXT NOT NULL DEFAULT '',
-	`references` int(11) DEFAULT '0' NOT NULL,
+	refs int(11) DEFAULT '0' NOT NULL,
 	
 	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE tx_layouteditor_domain_model_layouts_links (
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	class TEXT NOT NULL DEFAULT '',
-	`references` int(11) DEFAULT '0' NOT NULL,
+	refs int(11) DEFAULT '0' NOT NULL,
 	
 	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE tx_layouteditor_domain_model_layouts_powermail (
 	name varchar(255) DEFAULT '' NOT NULL,
 	class TEXT NOT NULL DEFAULT '',
 	type varchar(5) DEFAULT 'form' NOT NULL,
-	`references` int(11) DEFAULT '0' NOT NULL,
+	refs int(11) DEFAULT '0' NOT NULL,
 	
 	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
