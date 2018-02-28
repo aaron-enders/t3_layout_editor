@@ -45,7 +45,8 @@ while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){
 $sql = "SELECT uid, type, name, class, sorting FROM tx_layouteditor_domain_model_layouts_powermail WHERE deleted='0' AND hidden='0' ORDER BY sorting ASC";
 $rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
 while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){ 
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( 'TCEFORM.tx_powermail_domain_model_'.$out['type'].'.css.addItems.'.$out['class'].' = '.$out['name'] );
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( 'TCEFORM.tx_powermail_domain_model_'.$out['type'].'s.css.addItems.'.$out['class'].' = '.$out['name'] .'
+	TCEFORM.tx_powermail_domain_model_'.$out['type'].'s.class.addItems.'.$out['class'].' = '.$out['name'] );
 }
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Layout Editor');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_layouteditor_domain_model_admin', 'EXT:layout_editor/Resources/Private/Language/locallang_csh_tx_layouteditor_domain_model_admin.xlf');
