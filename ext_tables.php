@@ -27,10 +27,10 @@ $sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layou
 $rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
 while ( $out = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rs)){ 
 	$id = $out['uid'];
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( 'TCEFORM.tt_content.layout.addItems.'.$id.' = '.$out['name'] );
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig( 'TCEFORM.tt_content.layout.addItems.'.$out['class'].' = '.$out['name'] );
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript($_EXTKEY,'setup','
-		tt_content.stdWrap.innerWrap.cObject.'.$id.'=TEXT
-		tt_content.stdWrap.innerWrap.cObject.'.$id.'.value = <div class="'.$out['class'].'">|</div>');
+		tt_content.stdWrap.innerWrap.cObject.'.$out['class'].'=TEXT
+		tt_content.stdWrap.innerWrap.cObject.'.$out['class'].'.value = <div class="'.$out['class'].'">|</div>');
 }
 $sql = "SELECT uid, name, class, sorting FROM tx_layouteditor_domain_model_layouts_frontend WHERE deleted='0' AND hidden='0' ORDER BY sorting ASC";
 $rs = $GLOBALS['TYPO3_DB']->sql_query($sql);
