@@ -37,7 +37,14 @@ class AdminController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void 
 	 */
 	public function indexAction() {
-		rename(PATH_site.'uploads/tx_layouteditor', PATH_site.'fileadmin/ts/layoutEditor');
+		
+		if (file_exists(PATH_site.'uploads/tx_layouteditor')) {
+			rename(PATH_site.'uploads/tx_layouteditor', PATH_site.'fileadmin/ts/layoutEditor');
+		}
+		if (!file_exists(PATH_site.'fileadmin/ts/layoutEditor')) {
+		    mkdir(PATH_site.'fileadmin/ts/layoutEditor', 0777, true);
+		}
+		
 
 		$tempConfigPathOriginal = PATH_site . "typo3conf/ext/layout_editor/Configuration/";
 		$tempConfigPath = PATH_site . "fileadmin/ts/layoutEditor/";
